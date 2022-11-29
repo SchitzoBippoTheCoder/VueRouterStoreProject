@@ -2,19 +2,21 @@
     <h1>Hunters No More</h1>
     <p>Predator or Prey - Who will you be?</p>
     <br>
-    <p class="storyLine">On this unfortunate night, a </p>
-    <select id="classOptions" ref="classInput">
-        <option>Brute</option>
-        <option>Diseased</option>
-        <option>Thief</option>
-        <option>Fraud</option>
-        <option>Forgotten One</option>
-    </select>
-    <p class="storyLine"> named </p>
-    <input type="text" placeholder="..." ref="nameInput" id="nameInput" maxlength="16">
-    <br>
-    <br>
-    <input type="button" value="Joined the Hunt" @click="setUser()">
+    <div id="ticketContainer">
+        <input type="text" placeholder="..." ref="nameInput" id="nameInput" maxlength="16">
+        <p class="storyLine"> the </p>
+        <select id="classOptions" ref="classInput">
+            <option>Brute</option>
+            <option>Diseased</option>
+            <option>Thief</option>
+            <option>Fraud</option>
+            <option>Forgotten One</option>
+        </select>
+        <p class="storyLine"> has joined the hunt ...</p>
+        <br>
+        <br>
+        <input type="button" value="Submit your Ticket" @click="setUser()">
+    </div>
 </template>
 
 <script setup>
@@ -30,44 +32,66 @@ const index = indexStore();
 
 const { username } = storeToRefs(index)
 
-function setUser(){
-    if (nameInput.value.value == null || nameInput.value.value == ""){
+function setUser() {
+    if (nameInput.value.value == null || nameInput.value.value == "") {
 
     }
-    else{
+    else {
         index.setUser(nameInput.value.value, classInput.value.value);
         router.push("./playerStats");
-    }    
+    }
 }
 
 </script>
 
 <style>
-    .storyLine{
-        display: inline;
-    }
+#ticketContainer {
+    border-style: solid;
+    border-width: 2px;
 
-    #nameInput{
-        text-align: center;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 
-        border-bottom-style: solid;
-        border-bottom-width: 1.25px;
-        border-bottom-color: black;
-        border-left-color: transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
+    /*margin-left: 100px;*/
+}
 
-        margin-left: 5px;
-        width: 115px;
-        outline-color: transparent;
-        background-color: transparent;
-    }
-    #classOptions{
-        border-bottom-style: solid;
-        border-bottom-width: 1.25px;
-        border-bottom-color: black;
-        border-left-color: transparent;
-        border-top-color: transparent;
-        border-right-color: transparent;
-    }
+.storyLine {
+    display: inline;
+}
+
+#nameInput {
+    text-align: right;
+
+    border-bottom-style: solid;
+    border-bottom-width: 1.25px;
+    border-bottom-color: black;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+
+    margin-left: 5px;
+    width: 115px;
+    outline-color: transparent;
+    background-color: transparent;
+}
+
+#classOptions {
+    margin-left: 5px;
+    margin-right: 5px;
+
+    border-bottom-style: solid;
+    border-bottom-width: 1.25px;
+    border-bottom-color: black;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+
+
+    appearance: none;
+
+    padding-left: 5px;
+    padding-right: 3px;
+}
 </style>
