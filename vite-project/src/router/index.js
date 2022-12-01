@@ -1,18 +1,24 @@
 //import VueRouter from 'vue-router';
 import { createRouter, createWebHistory } from "vue-router";    
-import MainMenu from "../views/MainMenu.vue";
-import PlayerStats from "../views/PlayerStats.vue";
+import Homepage from "../views/Homepage.vue";
+import LoginPage from "../views/LoginPage.vue"
+import ShoppingArea from "../views/ShoppingArea.vue"
 
 const routes = [
     {
         path: '/',
-        name: 'MainMenu',
-        component: MainMenu
+        name: 'Homepage',
+        component: Homepage
     },
     {
-        path: '/playerStats',
-        name: 'PlayerStats',
-        component: PlayerStats
+        path: '/login',
+        name: 'LoginPage',
+        component: LoginPage
+    },
+    {
+        path: '/shopping-area',
+        name: 'ShoppingArea',
+        component: ShoppingArea
     }
 ];
 
